@@ -1,0 +1,130 @@
+Projet : implémenter une application en JAVA du jeu de plateau Citadelles de Bruno Faidutti.
+
+Versions :
+	- "Base" (version texte du jeu), 4 joueurs dont trois seront simulé par l'application (i.e sans intelligence)
+	- "Complète" : ensemble des personnages, ensemble des cartes "merveille", jeu de 2 à 9 joueurs
+	- "Intelligente" : algorithme de la théorie des jeux pour la simulation des joueurs
+	- "Multi-joueurs" : application en réseau avec plusieurs joueurs
+	- "Graphique" : version graphique 
+
+Consigne : 
+	version de base + une des quatre extensions
+
+
+Modele :
+	- Quartier
+	- Les joueurs
+	- Caracteristiques
+	- Personnage
+	- Roi
+	- Pioche
+	- Plateau
+
+Quartiers :
+	* Quartiers religieux * 
+	- temple
+	- église
+	- monastère
+	- cathédrale
+
+	* Quartiers militaires *
+	- tour de guet
+	- prison
+	- caserne
+	- forteresse
+
+	* Quartiers nobles *
+	- manoir
+	- château
+	- palais
+
+	* Quartiers commerçants *
+	- taverne
+	- échoppe
+	- marché
+	- comptoir
+	- port
+	- hôtel de ville
+
+	* Merveilles * ==> Pouvoirs en plus
+
+Personnages :
+	* Rang 1 *
+	- Assassin : annoonce un rôle à tuer. Celui qui l'a ne peut pas jouer
+	- Sorcière : 
+	- Échevin : 
+
+	* Rang 2 *
+	- Voleur :
+	- Espion : 
+	- Maître-Chanteuse :
+
+	*Rang 3 *
+	- Magicienne : 
+	- Sorcier :
+	- Voyante :
+
+	* Rang 4 *
+	- Roi : 
+	- Empereur : 
+	- Patricien : 
+
+	* Rang 5 *
+	- Évêque : 
+	- Abbé : 
+	- Cardinal :
+
+	* Rang 6 *
+	- Marchande : 
+	- Alchimiste : 
+	- Négociant :
+
+	* Rang 7 *
+	- Architecte : 
+	- Navigatrice : 
+	- Archiviste : 
+
+	* Rang 8 *
+	- Condottiere : 
+	- Diplomate : 
+	- Capitaine :
+
+	* Rang 9 *
+	- Reine : 
+	- Artiste : 
+	- Baili :
+
+
+
+Le but du jeu :
+2 à 8 joueurs s'affrontent pour construire le plus rapidement la plus préstigieuse cité (8 quartiers).
+
+
+Le jeu :
+	* Avant de Commencer *
+	1 - Déterminer le nombre de joueurs
+	2 - Choix de la configuration : 
+		a - Choisir parmis une configuration existante : base, ambitieux, Subtils, Illustres, Sournois, Tenaces ou Retors
+		b - Choisir 8 à 9 Personnages & 14 merveilles (mélangées aux 54 quartiers)
+	3 - Choisir qu'el joueur à la Couronne
+
+	* Tour de jeu *
+	1 - Attribution des cartes Personnage
+	pour chaque joueurs par ordre croissant des rangs :
+		a - Recoit des ressources en choississant
+			- soit 2 pièces d'or 
+			- soit piocher 2 Quartier et n'en conserver qu'un) 
+		b -  puis :
+			- recevoir les ressources spécifiques à son Personnage, Merveilles
+			- utiliser le pouvoir de son Personnage
+			- batir ou non un quartier dans sa cité en payant le cout de construction
+
+
+
+
+
+
+
+
+
+
