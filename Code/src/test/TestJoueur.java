@@ -6,11 +6,11 @@ import modele.Joueur;
 public class TestJoueur {
 	public static void main(String[] args){
 		TestJoueur testJoueur = new TestJoueur();
-		testJoueur.test1();
-		//testJoueur.test2();	
+		//testJoueur.test1();
+		//testJoueur.test2();
 		//testJoueur.test3();
 		//testJoueur.test4();
-		//testJoueur.test5();	
+		testJoueur.test5();
 	}	
 	
 	public void test1(){
@@ -18,10 +18,8 @@ public class TestJoueur {
 		Joueur joueur = new Joueur("Billy");
 		Test.test(joueur.getNom().equals("Billy"),"test du nom du joueur");
 		Test.test(joueur.nbPieces() == 0,"test du trésor initial du joueur");
-		Test.test(joueur.nbQuartiersDansCite()== 0,
-				"test de nombre de quartiers dans la cite");
-		Test.test(joueur.nbQuartiersDansMain()== 0,
-				"test du nombre de quartiers dans la main du joueur");
+		Test.test(joueur.nbQuartiersDansCite()== 0,"test de nombre de quartiers dans la cite");
+		Test.test(joueur.nbQuartiersDansMain()== 0,"test du nombre de quartiers dans la main du joueur");
 	}
 	
 	public void test2() {

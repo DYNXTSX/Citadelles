@@ -1,16 +1,13 @@
 package test;
 
-import modele.Caracteristiques;
-import modele.Joueur;
-import modele.Quartier;
-import modele.Roi;
+import modele.*;
 
 public class TestRoi {
 
 	public static void main(String[] args) {
 		TestRoi testRoi= new TestRoi();
-		testRoi.test1();
-		//testRoi.test2();	
+		//testRoi.test1();
+		//testRoi.test2();
 		//testRoi.test3();
 		//testRoi.test4();
 		//testRoi.test5();
@@ -18,7 +15,7 @@ public class TestRoi {
 		//testRoi.test7();
 		//testRoi.test8();
 		//testRoi.test9();
-		//testRoi.test10();
+		testRoi.test10();
 	}
 	
 	public void test1(){
@@ -26,8 +23,7 @@ public class TestRoi {
 		Roi roi = new Roi();
 		Test.test(roi.getNom().equals("Roi"),"test du nom du personnage Roi");
 		Test.test(roi.getRang()== 4,"test du rang du personnage Roi");
-		Test.test(roi.getCaracteristiques().equals(Caracteristiques.ROI),
-				"test des caractéristiques du personnage Roi");
+		Test.test(roi.getCaracteristiques().equals(Caracteristiques.ROI),"test des caractéristiques du personnage Roi");
 		Test.test(roi.getJoueur()==null, "test de l'initialisation de la variable \"joueur\"");
 		Test.test(roi.getAssassine()==false, "test de l'initialisation de la variable \"assassine\"");
 		Test.test(roi.getVole()==false, "test de l'initialisation de la variable \"vole\"");
@@ -104,21 +100,17 @@ public class TestRoi {
 		Quartier quartier2 = new Quartier("prison",Quartier.TYPE_QUARTIERS[1],2);
 		Quartier quartier3 = new Quartier("palais",Quartier.TYPE_QUARTIERS[2],5);
 		roi.percevoirRessourcesSpecifiques();
-		Test.test(roi.getJoueur() == null,
-			"test alors que le joueur n'est pas attribué");
+		Test.test(roi.getJoueur() == null,"test alors que le joueur n'est pas attribué");
 		roi.setJoueur(joueur);
 		roi.ajouterPieces();
-		Test.test(roi.getJoueur().nbPieces() == 2,
-			"test du nombre de pièces d'or avant perception");
+		Test.test(roi.getJoueur().nbPieces() == 2,"test du nombre de pièces d'or avant perception");
 		roi.percevoirRessourcesSpecifiques();
-		Test.test(roi.getJoueur().nbPieces() == 2,
-			"test alors qu'il n'y a pas de quartiers nobles");
+		Test.test(roi.getJoueur().nbPieces() == 2,"test alors qu'il n'y a pas de quartiers nobles");
 		roi.construire(quartier1);
 		roi.construire(quartier2);
-		roi.construire(quartier3);		
+		roi.construire(quartier3);
 		roi.percevoirRessourcesSpecifiques();
-		Test.test(roi.getJoueur().nbPieces() == 3,
-			"test du nombre de pièces d'or après perception de ressources spécifiques avec 1 quartier noble");
+		Test.test(roi.getJoueur().nbPieces() == 3,"test du nombre de pièces d'or après perception de ressources spécifiques avec 1 quartier noble");
 	}
 	public void test9(){
 		System.out.println("TEST DE L'UTILISATION DU POUVOIR DU ROI");
