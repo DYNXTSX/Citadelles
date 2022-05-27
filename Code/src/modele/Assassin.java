@@ -2,6 +2,8 @@ package modele;
 
 import controleur.Interaction;
 
+import java.util.Random;
+
 public class Assassin extends Personnage{
 
     public Assassin() {
@@ -33,5 +35,17 @@ public class Assassin extends Personnage{
                 System.out.print("Votre choix : ");
             }
         } while(continu);
+    }
+
+    public void utiliserPouvoirAvatar(){
+        int choix;
+
+        do{
+            choix = (int) (Math.random()*(this.getPlateau().getNombreJoueurs()));
+
+            if(!this.getPlateau().getJoueur(choix).equals(this.getJoueur()))
+                this.getPlateau().getPersonnage(choix).setAssassine();
+
+        } while (!this.getPlateau().getJoueur(choix).getPersonnage().getAssassine());
     }
 }
