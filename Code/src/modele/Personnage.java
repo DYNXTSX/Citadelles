@@ -65,10 +65,11 @@ abstract public class Personnage {
 
     public void percevoirRessourcesSpecifiques(){
         if(joueur != null && !assasine){
-            System.out.println("aucune ressource spécifique");
+            System.out.println("aucune ressource spï¿½cifique");
         }
     }
     abstract public void utiliserPouvoir();
+    abstract public void utiliserPouvoirAvatar();
 
     public void reinitialiser(){
         this.joueur = null;

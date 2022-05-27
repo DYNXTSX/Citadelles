@@ -98,4 +98,55 @@ public class Condottiere extends Personnage{
             System.out.println("Vous n'utilisez pas votre pouvoir.");
         }
     }
+
+
+    public void utiliserPouvoirAvatar(){
+
+        int selectedTarget;
+        Boolean keepAsking = true;
+
+        do{
+            selectedTarget = (int) (Math.random()*(this.getPlateau().getNombreJoueurs()+1));
+
+            if(selectedTarget == 0){
+                keepAsking = false;
+            } else {
+                Joueur targetPlayer = this.getPlateau().getJoueur(selectedTarget-1);
+
+                if(targetPlayer.getPersonnage() instanceof Eveque && !targetPlayer.getPersonnage().getAssassine()){
+                    keepAsking = true;
+                } else if(targetPlayer.nbQuartiersDansCite() <= 0) {
+                    keepAsking = true;
+                } else {
+                    keepAsking = false;
+
+                    int selectedQuartier;
+                    Boolean keepAskingQuartier = true;
+
+                    do{
+                        selectedQuartier = (int) (Math.random()*(targetPlayer.nbQuartiersDansCite()+2));
+
+                        Quartier targetQuartier = targetPlayer.getCite().get(selectedQuartier - 1);
+
+                        if(targetQuartier.getNom().equals("Donjon")){ // gestion de la merveille Donjon
+                            keepAsking = true;
+                        } else {
+                            if(targetQuartier.getCout()-1 < this.getJoueur().nbPieces()){
+                                keepAskingQuartier = false;
+                                System.out.println("=> On retire " + targetQuartier.getNom() + " à " + targetPlayer.getNom());
+                                targetPlayer.retirerQuartierDansCite(targetQuartier.getNom());
+                                this.getPlateau().getPioche().ajouter(targetQuartier);
+                            }
+                        }
+
+                    } while (keepAskingQuartier);
+
+                }
+
+            }
+
+        } while (keepAsking);
+
+    }
+
 }

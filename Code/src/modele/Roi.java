@@ -26,8 +26,12 @@ public class Roi extends Personnage {
                 if(q.getType().equals(Quartier.TYPE_QUARTIERS[2]))
                     count += 1;
             }
-            System.out.println(count+" pièce(s) ont été ajouter au trésor du roi !");
+            System.out.println(count+" piï¿½ce(s) ont ï¿½tï¿½ ajouter au trï¿½sor du roi !");
             getJoueur().ajouterPieces(count);
         }
+    }
+
+    public void utiliserPouvoirAvatar(){
+        this.utiliserPouvoir();
     }
 }
