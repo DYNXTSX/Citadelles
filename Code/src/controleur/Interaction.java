@@ -1,6 +1,7 @@
 package controleur;
 
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Interaction {
@@ -91,6 +92,16 @@ public class Interaction {
         } while(continu);
 
         return retour;
+    }
+
+    public static int intRandom(int a, int b){
+        Random rand = new Random();
+        return rand.ints(a, b).findFirst().getAsInt();
+    }
+
+    public static Boolean boolRandom(){
+        Random rand = new Random();
+        return rand.nextBoolean();
     }
 
 

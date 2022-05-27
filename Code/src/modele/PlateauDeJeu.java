@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlateauDeJeu {
-    private List<Personnage> listePersonnage;
-    private List<Joueur> listeJoueurs;
+    private Personnage[] listePersonnages;
+    private Joueur[] listeJoueurs;
     private Pioche pioche;
     private Integer nombrePersonnages;
     private Integer nombreJoueurs;
 
     public PlateauDeJeu(){
-        this.listeJoueurs = new ArrayList<Joueur>();
-        this.listePersonnage = new ArrayList<Personnage>();
+        this.listeJoueurs = new Joueur[9];
+        this.listePersonnages = new Personnage[9];
         this.pioche = new Pioche();
         pioche.melanger();
     }
@@ -27,17 +27,30 @@ public class PlateauDeJeu {
         return pioche;
     }
     public Personnage getPersonnage(int i){
-        return listePersonnage.get(i);
+        if(i >= 0 && i < this.listePersonnages.length-1)
+            return this.listePersonnages[i];
+        else
+            return null;
     }
     public Joueur getJoueur(int i){
-            return listeJoueurs.get(i);
+        if(i >= 0 && i < this.listeJoueurs.length-1)
+            return this.listeJoueurs[i];
+        else
+            return null;
     }
 
-    public void ajouterPersonnage(Personnage p){
-        if(p != null && listePersonnage.size() <= 9){
-            p.setPlateauDeJeu(this);
-            listePersonnage.add(p);
-            this.nombrePersonnages = listePersonnage.size();
+    public void ajouterPersonnage(Personnage personnage){
+        if(personnage != null && this.getNombrePersonnages() != this.listePersonnages.length){
+            this.listePersonnages[this.getNombrePersonnages()] = personnage;
+            personnage.setPlateauDeJeu(this);
+            this.nombrePersonnages += 1;
+        }
+    }
+
+    public void ajouterJoueur(Joueur joueur){
+        if(joueur != null && this.getNombreJoueurs() != this.listeJoueurs.length){
+            this.listeJoueurs[this.getNombreJoueurs()] = joueur;
+            this.nombreJoueurs += 1;
         }
     }
 
@@ -45,12 +58,12 @@ public class PlateauDeJeu {
         this.pioche=p;
     }
 
-    public void ajouterJoueur(Joueur j){
-        if(j != null && listeJoueurs.size() <= 9){
-            System.out.println("Joueur " +j.getNom()+" ajouté !");
-            listeJoueurs.add(j);
-            this.nombreJoueurs = listeJoueurs.size();
-        }
+    public Personnage[] getListePersonnages(){
+        return this.listePersonnages;
+    }
+
+    public Joueur[] getListeJoueurs(){
+        return this.listeJoueurs;
     }
 
 
