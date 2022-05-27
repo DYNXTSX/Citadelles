@@ -90,6 +90,13 @@ public class Joueur {
         }
     }
 
+    public ArrayList<Quartier> getMain() {
+        return main;
+    }
+
+    public Quartier getQuartier(int quartier) {
+        return this.cite.get(quartier);
+    }
 
     public void reinitialiser(){
         this.tresor = 0;

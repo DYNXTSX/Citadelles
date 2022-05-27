@@ -41,6 +41,10 @@ public class PlateauDeJeu {
         }
     }
 
+    public void setPioche(Pioche p) {
+        this.pioche=p;
+    }
+
     public void ajouterJoueur(Joueur j){
         if(j != null && listeJoueurs.size() <= 9){
             System.out.println("Joueur " +j.getNom()+" ajouté !");
