@@ -41,7 +41,7 @@ public class Assassin extends Personnage{
         int choix;
 
         do{
-            choix = (int) (Math.random()*(this.getPlateau().getNombreJoueurs()));
+            choix = Interaction.intRandom(0, this.getPlateau().getNombreJoueurs());
 
             if(!this.getPlateau().getJoueur(choix).equals(this.getJoueur()))
                 this.getPlateau().getPersonnage(choix).setAssassine();

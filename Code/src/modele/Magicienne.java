@@ -72,8 +72,7 @@ public class Magicienne extends Personnage{
 
     public void utiliserPouvoirAvatar(){
 
-        Random rd = new Random();
-        Boolean exchangeWithOpponent = rd.nextBoolean();
+        Boolean exchangeWithOpponent = Interaction.boolRandom();
         PlateauDeJeu currentPlateau = this.getPlateau();
 
         if(exchangeWithOpponent){
@@ -82,7 +81,7 @@ public class Magicienne extends Personnage{
             Boolean keepAsking = true;
 
             do{
-                selectedPlayer = (int) (Math.random()*(currentPlateau.getNombreJoueurs()+1));
+                selectedPlayer = Interaction.intRandom(1, currentPlateau.getNombreJoueurs()+1);
                 Joueur targetedPlayer = currentPlateau.getJoueur(selectedPlayer-1);
 
                 if(targetedPlayer.equals(this.getJoueur())){
@@ -110,7 +109,7 @@ public class Magicienne extends Personnage{
 
         } else {
 
-            int nbCards = (int) (Math.random()*(1+this.getJoueur().nbQuartiersDansMain()));
+            int nbCards = Interaction.intRandom(1, this.getJoueur().nbQuartiersDansMain());
 
             if(nbCards == this.getJoueur().nbQuartiersDansMain()){
 
@@ -129,7 +128,7 @@ public class Magicienne extends Personnage{
 
                 int choosenCard;
                 for(int i = 0; i < nbCards; i++){
-                    choosenCard = (int) (Math.random()*(this.getJoueur().nbQuartiersDansMain()+1));
+                    choosenCard = Interaction.intRandom(1, this.getJoueur().nbQuartiersDansMain()+1);
                     currentPlateau.getPioche().ajouter(copieMain.remove(choosenCard-1));
                 }
 

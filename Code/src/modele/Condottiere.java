@@ -106,7 +106,7 @@ public class Condottiere extends Personnage{
         Boolean keepAsking = true;
 
         do{
-            selectedTarget = (int) (Math.random()*(this.getPlateau().getNombreJoueurs()+1));
+            selectedTarget = Interaction.intRandom(0, this.getPlateau().getNombreJoueurs()+1);
 
             if(selectedTarget == 0){
                 keepAsking = false;
@@ -124,9 +124,9 @@ public class Condottiere extends Personnage{
                     Boolean keepAskingQuartier = true;
 
                     do{
-                        selectedQuartier = (int) (Math.random()*(targetPlayer.nbQuartiersDansCite()+2));
+                        selectedQuartier = Interaction.intRandom(1, targetPlayer.nbQuartiersDansCite()+1);
 
-                        Quartier targetQuartier = targetPlayer.getCite().get(selectedQuartier - 1);
+                        Quartier targetQuartier = targetPlayer.getCite()[selectedQuartier-1];
 
                         if(targetQuartier.getNom().equals("Donjon")){ // gestion de la merveille Donjon
                             keepAsking = true;

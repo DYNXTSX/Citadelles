@@ -7,7 +7,7 @@ import java.util.Random;
 public class Joueur {
     private String nom;
     private Integer tresor;
-    private List<Quartier> cite;
+    private Quartier[] cite;
     private Integer nbQuartiers;
     private ArrayList<Quartier> main;
     private Boolean possedeCouronne;
@@ -19,7 +19,7 @@ public class Joueur {
         this.nbQuartiers = 0;
         this.possedeCouronne = false;
         this.main = new ArrayList<Quartier>();
-        this.cite = new ArrayList<Quartier>();
+        this.cite = new Quartier[8];
         this.nomPersonnage = null;
     }
 
@@ -30,10 +30,10 @@ public class Joueur {
         return tresor;
     }
     public Integer nbQuartiersDansCite(){
-        return cite.size();
+        return nbQuartiers;
     }
-    public List<Quartier> getCite(){
-        return cite;
+    public Quartier[] getCite(){
+        return this.cite;
     }
     public Integer nbQuartiersDansMain(){
         return main.size();
@@ -53,26 +53,40 @@ public class Joueur {
     }
 
     public void ajouterQuartierDansCite(Quartier quartier){
-        if(nbQuartiersDansCite() < 8){
-            System.out.println("Le quartier " + quartier.getNom() + "["+ quartier.getType()+"]" +" a été construit !");
-            cite.add(quartier);
+        if(this.nbQuartiersDansCite() < 8){
+            this.cite[this.nbQuartiersDansCite()] = quartier;
+            this.nbQuartiers++;
         }
     }
     public Boolean quartierPresentDansCite(String nom){
-        for(Quartier q : cite){
-            if(q.getNom().equals(nom))
-                return true;
-        }
-        return false;
-    }
-    public Quartier retirerQuartierDansCite(String nom){
-        for(Quartier q : cite){
-            if(q.getNom().equals(nom)){
-                cite.remove(q);
-                return q;
+        Boolean isPresent = false;
+
+        for(Quartier qt : this.cite){
+            if(qt instanceof Quartier && qt.getNom() == nom){
+                isPresent = true;
+                break;
             }
         }
-        return null;
+
+        return isPresent;
+    }
+    public Quartier retirerQuartierDansCite(String nom){
+        Quartier quartierTrouve = null;
+
+        for(int i = 1; i < this.cite.length; i++){
+            if(this.cite[i-1] instanceof Quartier && this.cite[i-1].getNom().equals(nom)){
+                quartierTrouve = this.cite[i-1];
+                this.cite[i-1] = null;
+            }
+
+            if(this.cite[i-1] == null){
+                this.cite[i-1] = this.cite[i];
+                this.cite[i] = null;
+            }
+        }
+
+        this.nbQuartiers--;
+        return quartierTrouve != null ? quartierTrouve : null;
     }
 
     public void ajouterQuartierDansMain(Quartier quartier){
@@ -94,14 +108,14 @@ public class Joueur {
         return main;
     }
 
-    public Quartier getQuartier(int quartier) {
-        return this.cite.get(quartier);
+    public Quartier getQuartier(int q) {
+        return cite[q];
     }
 
     public void reinitialiser(){
         this.tresor = 0;
         this.main = new ArrayList<Quartier>();
-        this.cite.clear();
+        this.cite = new Quartier[8];
     }
 
     public Personnage getPersonnage() {
