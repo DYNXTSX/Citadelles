@@ -79,7 +79,7 @@ public class Configuration {
         p.ajouter(q);
         q = new Quartier("école de magie", Quartier.TYPE_QUARTIERS[4],6,"Pour la perception des revenus des personnages, l’Ecole de Magie est considérée comme un quartier du type (couleur) de votre choix.");
         p.ajouter(q);
-        q = new Quartier("fontaine aux souhaits", Quartier.TYPE_QUARTIERS[4],5,"A la fin de la partie, marquez 1 point supplémentaire par merveille dans votre cité, y compris la Fontaine aux Souhaits. ");
+        q = new Quartier("fontaine aux souhaits", Quartier.TYPE_QUARTIERS[4],5,"A la fin de la partie, marquez 1 point supplémentaire par merveille dans votre cité, y compris la Fontaine aux Souhaits.");
         p.ajouter(q);
         q = new Quartier("forge", Quartier.TYPE_QUARTIERS[4],5,"Une fois par tour, vous pouvez payez 2 pièces d’or pour piocher 3 cartes");
         p.ajouter(q);
@@ -93,7 +93,7 @@ public class Configuration {
         p.ajouter(q);
         q = new Quartier("trésor impérial", Quartier.TYPE_QUARTIERS[4],5," A la fin de la partie, marquez 1 point supplémentaire par pièce d’or dans votre trésor.");
         p.ajouter(q);
-        q = new Quartier("tripot", Quartier.TYPE_QUARTIERS[4],6,"Vous pouvez payer tout ou partie du coût de construction du Tripot en cartes de votre main, au prix de 1 carte pour 1 pièce d’or. ");
+        q = new Quartier("tripot", Quartier.TYPE_QUARTIERS[4],6,"Vous pouvez payer tout ou partie du coût de construction du Tripot en cartes de votre main, au prix de 1 carte pour 1 pièce d’or.");
         p.ajouter(q);
 
         p.melanger();

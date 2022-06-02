@@ -14,11 +14,13 @@ public class PlateauDeJeu {
         this.listeJoueurs = new Joueur[9];
         this.listePersonnages = new Personnage[9];
         this.pioche = new Pioche();
+        this.nombrePersonnages = 0;
+        this.nombreJoueurs = 0;
         pioche.melanger();
     }
 
     public Integer getNombrePersonnages() {
-        return nombrePersonnages != null ? nombrePersonnages : 0;
+        return nombrePersonnages;
     }
     public Integer getNombreJoueurs() {
         return nombreJoueurs != null ? nombreJoueurs : 0;
@@ -32,6 +34,7 @@ public class PlateauDeJeu {
         else
             return null;
     }
+
     public Joueur getJoueur(int i){
         if(i >= 0 && i < this.listeJoueurs.length-1)
             return this.listeJoueurs[i];
