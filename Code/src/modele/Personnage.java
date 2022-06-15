@@ -2,7 +2,7 @@ package modele;
 
 abstract public class Personnage {
     private String nom;
-    private Integer rang;
+    private Integer rang = 0;
     private String caracteristiques;
     private Joueur joueur;
     private Boolean assasine;

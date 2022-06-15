@@ -10,8 +10,8 @@ public class TestArchitecte {
 
     public static void main(String[] args) {
         TestArchitecte test= new TestArchitecte();
-        //test.test1();
-        //test.test2();
+        test.test1();
+        test.test2();
         test.test3();
     }
 

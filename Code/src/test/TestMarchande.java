@@ -10,8 +10,8 @@ public class TestMarchande {
 
     public static void main(String[] args) {
         TestMarchande test= new TestMarchande();
-        //test.test1();
-        //test.test2();
+        test.test1();
+        test.test2();
         test.test3();
     }
 

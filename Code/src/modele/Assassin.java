@@ -37,15 +37,13 @@ public class Assassin extends Personnage{
         } while(continu);
     }
 
-    public void utiliserPouvoirAvatar(){
-        int choix;
-
-        do{
-            choix = Interaction.intRandom(0, this.getPlateau().getNombreJoueurs());
-
-            if(!this.getPlateau().getJoueur(choix).equals(this.getJoueur()))
-                this.getPlateau().getPersonnage(choix).setAssassine();
-
-        } while (!this.getPlateau().getJoueur(choix).getPersonnage().getAssassine());
+    public void utiliserPouvoirAvatar() {
+        Random rand=new Random();
+        int choixAlea=rand.nextInt(this.getPlateau().getNombrePersonnages());
+        while (this.getPlateau().getPersonnage(choixAlea).getRang()==1 || this.getPlateau().getPersonnage(choixAlea).getJoueur()==null) {
+            choixAlea=rand.nextInt(this.getPlateau().getNombrePersonnages());
+        }
+        this.getPlateau().getPersonnage(choixAlea).setAssassine();
+        System.out.println("Le personnage numéro "+(choixAlea+1)+" ("+this.getPlateau().getPersonnage(choixAlea).getNom()+") a �t� assassin�.");
     }
 }

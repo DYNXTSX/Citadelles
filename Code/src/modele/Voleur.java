@@ -38,14 +38,13 @@ public class Voleur extends Personnage {
 
     public void utiliserPouvoirAvatar(){
         int choix;
-        do{
+        choix = Interaction.intRandom(0, this.getPlateau().getNombreJoueurs());
+
+        while (this.getPlateau().getPersonnage(choix).getRang()<=2) {
             choix = Interaction.intRandom(0, this.getPlateau().getNombreJoueurs());
-            Personnage target = this.getPlateau().getJoueur(choix).getPersonnage();
+        }
 
-            if(!target.getNom().equals(this.getNom()) && target.getRang() != 1 && !target.getAssassine())
-                target.setVole();
-
-        } while (!this.getPlateau().getJoueur(choix).getPersonnage().getVole());
+        this.getPlateau().getPersonnage(choix).setVole();
     }
 
 }

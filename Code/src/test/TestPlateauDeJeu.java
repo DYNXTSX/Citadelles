@@ -10,10 +10,10 @@ public class TestPlateauDeJeu {
 
 	public static void main(String[] args) {
 		TestPlateauDeJeu testPlateau = new TestPlateauDeJeu();
-		//testPlateau.test1();
-		//testPlateau.test2();
-		//testPlateau.test3();
-		//testPlateau.test4();
+		testPlateau.test1();
+		testPlateau.test2();
+		testPlateau.test3();
+		testPlateau.test4();
 	}
 	
 	public void test1() {

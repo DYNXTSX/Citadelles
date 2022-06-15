@@ -7,6 +7,14 @@ import java.util.Scanner;
 public class Interaction {
     private static Scanner sc = new Scanner(System.in);
 
+    /**
+     * Méthode lireUnEntier() ==> int
+     * ==============================
+     *
+     * Cette méthode demande à l'utilisateur d'entrer un entier.
+     *
+     * @return ==> entier choisi par l'utilisateur
+     */
     public static int lireUnEntier() {
         int i = 0;
         boolean continu = true;
@@ -22,8 +30,16 @@ public class Interaction {
         return i;
     }
 
-    // renvoie un entier lu au clavier compris dans l'intervalle
-    //     [borneMin, borneMax[
+    /**
+     * Méthode lireUnEntier(int borneMin, int borneMax) ==> int
+     * ==============================
+     *
+     * Renvoie un entier lu au clavier compris dans l'intervalle.
+     *
+     * @param borneMin ==> borne minimum [borneMin,
+     * @param borneMax ==> borne max ,borneMax[
+     * @return ==> entier
+     */
     public static int lireUnEntier(int borneMin, int borneMax) {
         int i = 0;
         boolean continu = true;
@@ -39,40 +55,30 @@ public class Interaction {
         return i;
     }
 
-    // lit les r?ponses "oui", "non", "o" ou "n" et renvoie un bool?en
+    /**
+     *
+     * @return
+     */
     public static boolean lireOuiOuNon() {
-        boolean retour = true;
-        boolean continu = true;
-        String i = null;
-
+        String reponse;
+        boolean continu=true, retour=false;
         do {
             try {
-                i = sc.nextLine();
-                continu = !(i.equals("yes")||i.equals("y")||i.equals("no")||i.equals("n"));
+                reponse=sc.nextLine();
+                if(reponse.equals("oui")||reponse.equals("o")) {
+                    retour=true;
+                    continu=false;
+                } else if(reponse.equals("non")||reponse.equals("n")) {
+                    retour=false;
+                    continu=false;
+                } else {
+                    throw new Exception();
+                }
 
-            } catch (InputMismatchException e) {
-                System.out.print("Veuillez rentrer un chiffre : ");
-                sc.next();
+            } catch (Exception e) {
+                System.out.print("N'accepte que \"oui\", \"non\", \"o\" ou \"n\" : ");
             }
-        } while(continu);
-
-        switch (i){
-            case "yes":
-                retour = true;
-                break;
-
-            case "y":
-                retour = true;
-                break;
-
-            case "no":
-                retour = false;
-                break;
-
-            case "n":
-                retour = false;
-                break;
-        }
+        }while(continu);
         return retour;
     }
 

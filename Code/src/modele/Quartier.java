@@ -6,7 +6,7 @@ import java.util.List;
 public class Quartier {
     private String nom;
     private String type;
-    private Integer coutConstruction;
+    private Integer coutConstruction = 0;
     private String caracteristiques;
     public static final String[] TYPE_QUARTIERS = {"RELIGIEUX", "MILITAIRE", "NOBLE", "COMMERCANT", "MERVEILLE"};
 

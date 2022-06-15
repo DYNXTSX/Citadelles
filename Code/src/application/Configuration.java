@@ -2,6 +2,13 @@ package application;
 import modele.*;
 
 public class Configuration {
+    /**
+     * Méthode nouvellePioche() ==> Pioche
+     * ===================================
+     *
+     * Cette méthode permet de créer la pioche du jeu avec les quartiers.
+     * @return la pioche du jeu
+     */
     public static Pioche nouvellePioche() {
         Pioche p = new Pioche();
         Quartier q = new Quartier();
@@ -34,6 +41,15 @@ public class Configuration {
         return p;
     }
 
+    /**
+     * Méthode configurationDeBase(Pioche p) ==> PlateauDeJeu
+     * ======================================================
+     *
+     * Cette méthode permet de créer le plateau de jeu, avec les personnages, les joueurs et les merveilles.
+     *
+     * @param p ==> prend en paramètre une pioche
+     * @return  ==> retourne le plateau de jeu
+     */
     public static PlateauDeJeu configurationDeBase(Pioche p) {
         PlateauDeJeu plat = new PlateauDeJeu();
         Quartier q = new Quartier();
@@ -59,11 +75,11 @@ public class Configuration {
         //Ajout Des Joueurs
         Joueur joueur = new Joueur("Joueur1");
         plat.ajouterJoueur(joueur);
-        joueur = new Joueur("Joueur2");
+        joueur = new Joueur("PNJ 2");
         plat.ajouterJoueur(joueur);
-        joueur = new Joueur("Joueur3");
+        joueur = new Joueur("PNJ 3");
         plat.ajouterJoueur(joueur);
-        joueur = new Joueur("Joueur4");
+        joueur = new Joueur("PNJ 4");
         plat.ajouterJoueur(joueur);
 
         //Ajout Merveilles

@@ -6,9 +6,9 @@ import java.util.Random;
 
 public class Joueur {
     private String nom;
-    private Integer tresor;
+    private Integer tresor = 0;
     private Quartier[] cite;
-    private Integer nbQuartiers;
+    private Integer nbQuartiers = 0;
     private ArrayList<Quartier> main;
     private Boolean possedeCouronne;
     protected Personnage nomPersonnage;
@@ -27,7 +27,7 @@ public class Joueur {
         return nom;
     }
     public Integer nbPieces(){
-        return tresor;
+        return tresor == null ? tresor : 0;
     }
     public Integer nbQuartiersDansCite(){
         return nbQuartiers;
@@ -92,6 +92,7 @@ public class Joueur {
     public void ajouterQuartierDansMain(Quartier quartier){
         main.add(quartier);
     }
+
     public Quartier retirerQuartierDansMain(){
         if(nbQuartiersDansMain() == 0)
             return null;
@@ -114,8 +115,14 @@ public class Joueur {
 
     public void reinitialiser(){
         this.tresor = 0;
-        this.main = new ArrayList<Quartier>();
-        this.cite = new Quartier[8];
+
+        while (nbQuartiersDansMain() > 0) {
+            retirerQuartierDansMain();
+        }
+
+        for (int i = 0; i < nbQuartiersDansCite(); i ++) {
+            retirerQuartierDansCite(cite[i].getNom());
+        }
     }
 
     public Personnage getPersonnage() {

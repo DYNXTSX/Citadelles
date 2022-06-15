@@ -7,8 +7,8 @@ public class PlateauDeJeu {
     private Personnage[] listePersonnages;
     private Joueur[] listeJoueurs;
     private Pioche pioche;
-    private Integer nombrePersonnages;
-    private Integer nombreJoueurs;
+    private Integer nombrePersonnages = 0;
+    private Integer nombreJoueurs = 0;
 
     public PlateauDeJeu(){
         this.listeJoueurs = new Joueur[9];
@@ -48,9 +48,9 @@ public class PlateauDeJeu {
     }
 
     public void ajouterJoueur(Joueur joueur){
-        if(joueur != null && this.getNombreJoueurs() != this.listeJoueurs.length){
-            this.listeJoueurs[this.getNombreJoueurs()] = joueur;
-            this.nombreJoueurs += 1;
+        if(this.nombreJoueurs<=8 && joueur!=null){
+            this.listeJoueurs[this.nombreJoueurs] = joueur;
+            this.nombreJoueurs++;
         }
     }
 

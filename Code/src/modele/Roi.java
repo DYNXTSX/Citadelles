@@ -12,22 +12,25 @@ public class Roi extends Personnage {
 
     @Override
     public void utiliserPouvoir() {
-        if(getJoueur() != null){
-            System.out.println("Je prends la couronne");
-            getJoueur().setPossedeCouronne(true);
+        if(this.getJoueur() instanceof Joueur && !this.getAssassine()){
+            for(int i = 0; i < this.getPlateau().getNombreJoueurs(); i++){
+                if(this.getPlateau().getJoueur(i).getPossedeCouronne())
+                    this.getPlateau().getJoueur(i).setPossedeCouronne(false);
+            }
+            this.getJoueur().setPossedeCouronne(true);
+            System.out.println("Je prends la couronne.");
         }
     }
 
-    @Override
     public void percevoirRessourcesSpecifiques() {
-        int count = 0;
-        if(getJoueur() != null){
-            for(Quartier q : getJoueur().getCite()){
-                if(q.getType().equals(Quartier.TYPE_QUARTIERS[2]))
-                    count += 1;
+        int compteur = 0;
+        if (getJoueur() != null && this.getAssassine() != true) {
+            for (Quartier unQuartier : getJoueur().getCite()) {
+                if (unQuartier != null && unQuartier.getType() == "NOBLE") {
+                    compteur ++;
+                }
             }
-            System.out.println(count+" pi�ce(s) ont �t� ajouter au tr�sor du roi !");
-            getJoueur().ajouterPieces(count);
+            getJoueur().ajouterPieces(compteur);
         }
     }
 
