@@ -10,7 +10,6 @@ public class Assassin extends Personnage{
         super("Assassin", 1, Caracteristiques.ASSASSIN);
     }
 
-    @Override
     public void utiliserPouvoir() {
         int i=1;
         int lecture=0;
@@ -44,6 +43,6 @@ public class Assassin extends Personnage{
             choixAlea=rand.nextInt(this.getPlateau().getNombrePersonnages());
         }
         this.getPlateau().getPersonnage(choixAlea).setAssassine();
-        System.out.println("Le personnage numéro "+(choixAlea+1)+" ("+this.getPlateau().getPersonnage(choixAlea).getNom()+") a �t� assassin�.");
+        System.out.println("Le personnage numéro "+(choixAlea+1)+" ("+this.getPlateau().getPersonnage(choixAlea).getNom()+") a été assassiné.");
     }
 }

@@ -8,10 +8,10 @@ public class Interaction {
     private static Scanner sc = new Scanner(System.in);
 
     /**
-     * M�thode lireUnEntier() ==> int
+     * M�thode lireUnEntier() ==> int
      * ==============================
      *
-     * Cette m�thode demande � l'utilisateur d'entrer un entier.
+     * Cette m�thode demande � l'utilisateur d'entrer un entier.
      *
      * @return ==> entier choisi par l'utilisateur
      */
@@ -31,7 +31,7 @@ public class Interaction {
     }
 
     /**
-     * M�thode lireUnEntier(int borneMin, int borneMax) ==> int
+     * M�thode lireUnEntier(int borneMin, int borneMax) ==> int
      * ==============================
      *
      * Renvoie un entier lu au clavier compris dans l'intervalle.
@@ -56,8 +56,12 @@ public class Interaction {
     }
 
     /**
+     * Méthode lireOuiOuNon() ==> boolean
+     * ==============================
      *
-     * @return
+     * Cette méthode permet la lecture de "oui" ou "non"
+     *
+     * @return ==> un bool
      */
     public static boolean lireOuiOuNon() {
         String reponse;
@@ -82,7 +86,14 @@ public class Interaction {
         return retour;
     }
 
-    // renvoie une cha?ne de caract?re lue au clavier:
+    /**
+     * Méthode lireUneChaine() ==> String
+     * ==============================
+     *
+     * Cette méthode permet la lecture d'une chaine de caractere
+     *
+     * @return ==> un string
+     */
     public static String lireUneChaine() {
         String retour = "";
         boolean continu = true;
@@ -100,11 +111,27 @@ public class Interaction {
         return retour;
     }
 
+    /**
+     * Méthode intRandom(int a, int b) ==> int
+     * ==============================
+     *
+     * Cette méthode permet la lecture random d'un entier entre a et b
+     *
+     * @return ==> un entier
+     */
     public static int intRandom(int a, int b){
         Random rand = new Random();
         return rand.ints(a, b).findFirst().getAsInt();
     }
 
+    /**
+     * Méthode boolRandom() ==> Boolean
+     * ==============================
+     *
+     * Cette méthode permet la lecture random d'un bool
+     *
+     * @return ==> un bool
+     */
     public static Boolean boolRandom(){
         Random rand = new Random();
         return rand.nextBoolean();

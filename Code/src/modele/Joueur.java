@@ -27,7 +27,7 @@ public class Joueur {
         return nom;
     }
     public Integer nbPieces(){
-        return tresor == null ? tresor : 0;
+        return tresor;
     }
     public Integer nbQuartiersDansCite(){
         return nbQuartiers;
@@ -46,7 +46,7 @@ public class Joueur {
     }
 
     public void ajouterPieces(Integer nbPieces){
-        this.tresor += nbPieces > 0 ? nbPieces : 0;
+        this.tresor += nbPieces;
     }
     public void retirerPieces(Integer nbPieces){
         this.tresor -= ((nbPieces > 0)&&(nbPieces <= tresor)) ? nbPieces : 0;

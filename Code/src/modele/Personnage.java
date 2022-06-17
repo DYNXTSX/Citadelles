@@ -5,8 +5,8 @@ abstract public class Personnage {
     private Integer rang = 0;
     private String caracteristiques;
     private Joueur joueur;
-    private Boolean assasine;
-    private Boolean vole;
+    private Boolean assasine = false;
+    private Boolean vole = false;
     private modele.PlateauDeJeu PlateauDeJeu;
 
     public Personnage(String nom, Integer rang, String caracteristiques){
